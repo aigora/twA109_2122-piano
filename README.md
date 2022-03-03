@@ -4,7 +4,7 @@ Se va a crear un piano de siete notas mediante Arduino y el lenguaje de programa
 
 ## Integrantes del equipo
 
-Javier Lerín Alonoso @JavierLerinAlonso
+Javier Lerín Alonoso @javier.lerin.alonso
 
 Jorge Riveiro Ortiz
 
