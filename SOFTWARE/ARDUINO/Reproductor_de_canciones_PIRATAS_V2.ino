@@ -1,5 +1,7 @@
 //PRUEBA CANCIÓN DE  PIRATAS DEL CARIBE
 
+//PRUEBA CANCIÓN DE  PIRATAS DEL CARIBE
+
 const int buzzer = 12;
 const float velocidadcancion = 0.8;
 
@@ -63,7 +65,7 @@ int notas[] = {
 
     NOTA_E5, 0, 0, NOTA_F5, 0, 0,
     NOTA_E5, NOTA_E5, 0, NOTA_G5, 0, NOTA_E5, NOTA_D5, 0, 0,
-    NOTA_D5, 0, 0, NOTE_C5, 0, 0,
+    NOTA_D5, 0, 0, NOTA_C5, 0, 0,
     NOTA_B4, NOTA_C5, 0, NOTA_B4, 0, NOTA_A4,
 
     NOTA_E5, 0, 0, NOTA_F5, 0, 0,
@@ -129,8 +131,8 @@ void setup()
 
   for (int i = 0; i < totalNotas; i++)
   {
-    const int currentNote = notes[i];
-    float wait = duracion[i] / velocidad;
+    const int currentNota = notas[i];
+    float wait = duracion[i] / velocidadcancion;
    
     if (currentNota != 0)
     {
