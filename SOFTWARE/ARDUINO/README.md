@@ -7,5 +7,6 @@ Cuando presionemos un **boton** el zumbador vibrara, reproduciendose un sonido, 
 - Boton 5--->SOL
 - Boton 6--->LA
 - Boton 7--->SI
-
+# CANCIONES 
+Arduino UNO cuenta con una memoria 32 kb,es por eso que el reproductor de canciones sera de 8bits canciones de 8 bits.
 
