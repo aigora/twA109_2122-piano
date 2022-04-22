@@ -18,7 +18,6 @@ const float velocidadcancion = 0.8;
 #define NOTA_A5 880
 #define NOTA_B5 988
 
-
 int notas[] = {
     NOTA_E4, NOTA_G4, NOTA_A4, NOTA_A4, 0,
     NOTA_A4, NOTA_B4, NOTA_C5, NOTA_C5, 0,
