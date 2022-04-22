@@ -10,9 +10,9 @@ Cuando presionemos un **boton** el zumbador vibrara, reproduciendose un sonido, 
 # CANCIONES 
 Arduino UNO cuenta con una memoria 32 kb,es por eso que el reproductor de canciones sera de 8bits canciones de 8 bits.Anteriormente estas canciones habran sido transformadas a del formato MP3 a 8bits.
 Ejemplo de canciones:
-- Tema de Super Mario Bros.
-- Cancion de Bob Esponja
-- Bizcochito -Rosalia
 - Himno de España
-- Lemon Tree-Fools Garden
+- Tema de Super Mario Bros.
+- Canción de Piratas del Caribe
+- Bizcochito -Rosalia
+
 
