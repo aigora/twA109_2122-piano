@@ -7,5 +7,5 @@ Cuando presionemos un **boton** el zumbador vibrara, reproduciendose un sonido, 
 - Boton 5--->SOL
 - Boton 6--->LA
 - Boton 7--->SI
-- Boton 8--->DO
+
 
