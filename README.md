@@ -1,6 +1,6 @@
 # **Simulador de piano**
 
-Se va a crear un piano de siete notas mediante Arduino y el lenguaje de programación C. Al piano lo acompañará una aplicación que muestre las notas que se estén tocando.
+Se va a crear un piano de siete notas mediante Arduino y el lenguaje de programación C. Al piano lo acompañará una aplicación que muestre las notas que se estén tocando, junto con una grabadora de notas y un par de canciones ya programadas.
 
 ## Integrantes del equipo
 
