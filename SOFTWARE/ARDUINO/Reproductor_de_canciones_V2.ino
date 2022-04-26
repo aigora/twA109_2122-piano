@@ -126,8 +126,8 @@ int duracion[] = {
     125, 125, 125, 125, 125, 500};
 
 /*Himno de España*/
-const float velocidadcancion = 0.4;
-/*int notas[] ={ 
+/*const float velocidadcancion = 0.4;
+int notas[] ={ 
   NOTA_G4,NOTA_D4,NOTA_B4,NOTA_G4,NOTA_D5,
   NOTA_C5,NOTA_B4,NOTA_A4,NOTA_G4,NOTA_G4,NOTA_F4,NOTA_E4,NOTA_D4, 
   NOTA_G4,NOTA_A4,NOTA_B4,0,NOTA_D5, 
