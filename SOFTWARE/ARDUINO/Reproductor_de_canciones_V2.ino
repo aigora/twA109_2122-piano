@@ -1,6 +1,5 @@
 //PRUEBA CANCIÓN DE  PIRATAS DEL CARIBE
-
-//PRUEBA CANCIÓN DE  PIRATAS DEL CARIBE
+#include <pitches.h>
 
 const int buzzer = 12;
 const float velocidadcancion = 0.8;
