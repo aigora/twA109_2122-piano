@@ -8,7 +8,6 @@ Javier Lerín Alonoso @javier.lerin.alonso
 
 Jorge Riveiro Ortiz @jorge.riveiro
 
-Ammar Mayor Bouallaq @ammarmayor
 
 ## Objetivos del trabajo
 
