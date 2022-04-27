@@ -19,7 +19,7 @@ const int buzzer = 12;
 #define NOTA_A5 880
 #define NOTA_B5 988
 /*Piratas del caribe*/
-const float velocidadcancion = 0.8;
+const float velocidadcancion = 1;
 int notas[] = {
     NOTA_E4, NOTA_G4, NOTA_A4, NOTA_A4, 0,
     NOTA_A4, NOTA_B4, NOTA_C5, NOTA_C5, 0,
@@ -126,7 +126,7 @@ int duracion[] = {
     125, 125, 125, 125, 125, 500};
 
 /*Himno de España*/
-/*const float velocidadcancion = 0.4;
+/*const float velocidadcancion = 1.25;
 int notas[] ={ 
   NOTA_G4,NOTA_D4,NOTA_B4,NOTA_G4,NOTA_D5,
   NOTA_C5,NOTA_B4,NOTA_A4,NOTA_G4,NOTA_G4,NOTA_F4,NOTA_E4,NOTA_D4, 
