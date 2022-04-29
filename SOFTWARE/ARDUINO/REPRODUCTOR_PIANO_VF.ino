@@ -214,7 +214,7 @@ void Play_Piratas()
 }
 void Play_ESPANYA()
 {
-const float velocidadcancion = 1.5;
+const float velocidadcancion = 1.75;
 int notas[] ={ 
   NOTA_G4,NOTA_D4,NOTA_B4,NOTA_G4,NOTA_D5,
   NOTA_C5,NOTA_B4,NOTA_A4,NOTA_G4,NOTA_G4,NOTA_F4,NOTA_E4,NOTA_D4, 
@@ -343,17 +343,17 @@ const int totalNotas = sizeof(notas) / sizeof(int);
 }
 
 void setup() {
-pinMode(2, INPUT_PULLUP); //Button 1 with internal pull up
-pinMode(3, INPUT_PULLUP); //Button 2 with internal pull up
-pinMode(4, INPUT_PULLUP); //Button 3 with internal pull up
+pinMode(10, INPUT_PULLUP); //Button 1 with internal pull up
+pinMode(11, INPUT_PULLUP); //Button 2 with internal pull up
+pinMode(12, INPUT_PULLUP); //Button 3 with internal pull up
 Serial.begin(9600);
 }
 
 void loop() {
-    if (digitalRead(2)==0)
+    if (digitalRead(10)==0)
       { Serial.println("Selected -> 'He is a Pirate' ");  Play_Piratas();  }
-    if (digitalRead(3)==0)
+    if (digitalRead(11)==0)
       { Serial.println("Selected -> 'Crazy Frog' ");  Play_ESPANYA();  }
-    if (digitalRead(4)==0)
+    if (digitalRead(12)==0)
       { Serial.println("Selected -> 'Mario UnderWorld' ");  Play_Mario();  }
 }
