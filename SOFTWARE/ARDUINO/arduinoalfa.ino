@@ -44,47 +44,45 @@ void setup() {
 }
  void loop()
   {
-     while(digitalRead(pin1) == LOW)
+    while(digitalRead(pin1) == HIGH)
     {
-      tone(buzzer, nota[0], 100);
+      tone(buzzer, NOTA_C3, 100);
   
     }
-    while(digitalRead(pin2) == LOW)
+    while(digitalRead(pin2) == HIGH)
     {
-      tone(buzzer, nota[1], 100);
+      tone(buzzer, NOTA_D3, 100);
     }
   
-    while(digitalRead(pin3) == LOW)
+    while(digitalRead(pin3) == HIGH)
     {
-      tone(buzzer, nota[2], 100);
+      tone(buzzer, NOTA_E3, 100);
     }
     
-    while(digitalRead(pin4) == LOW)
+    while(digitalRead(pin4) == HIGH)
     {
-      tone(buzzer, nota[3], 100);
+      tone(buzzer, NOTA_F3, 100);
     }
   
-    while(digitalRead(pin5) == LOW)
+    while(digitalRead(pin5) == HIGH)
     {
-      tone(buzzer, nota[4], 100);
+      tone(buzzer, NOTA_G3, 100);
     }
   
-    while(digitalRead(pin6) == LOW)
+    while(digitalRead(pin6) == HIGH)
     {
-      tone(buzzer, nota[5], 100);
+      tone(buzzer, NOTA_A3, 100);
     }
   
-    while(digitalRead(pin7) == LOW)
+    while(digitalRead(pin7) == HIGH)
     {
-      tone(buzzer, nota[6], 100);
+      tone(buzzer, NOTA_B3, 100);
     }      
   
-    while(digitalRead(pin8) == LOW)
+    while(digitalRead(pin8) == HIGH)
     {
-      tone(buzzer, nota[7], 100);
+      tone(buzzer, NOTA_C2, 100);
     }  
- 
-    noTone(buzzer);
  
     procesar_mensajes();
   }
