@@ -1,4 +1,3 @@
-//PRUEBA CANCIÓN DE  PIRATAS DEL CARIBE
 #include <pitches.h>
 
 const int buzzer = 12;
@@ -94,7 +93,7 @@ const int buzzer = 12;
 #define NOTA_D8  4699
 #define NOTA_DS8 4978
 /*Piratas del caribe*/
-const float velocidadcancion = 1;
+/*const float velocidadcancion = 1;
 int notas[] = {
     NOTA_E4, NOTA_G4, NOTA_A4, NOTA_A4, 0,
     NOTA_A4, NOTA_B4, NOTA_C5, NOTA_C5, 0,
@@ -199,7 +198,7 @@ int duracion[] = {
     125, 125, 125, 125, 125, 125, 125, 125, 375,
     250, 125, 375, 250, 125, 375,
     125, 125, 125, 125, 125, 500};
-
+*/
 /*Himno de España*/
 /*const float velocidadcancion = 1.25;
 int notas[] ={ 
@@ -216,7 +215,6 @@ int notas[] ={
   NOTA_B4,NOTA_G4,NOTA_B4,NOTA_A4,NOTA_D4,NOTA_E4,NOTA_F4, 
   NOTA_G4,NOTA_A4,NOTA_B4,NOTA_C5,NOTA_D5,NOTA_C5, 
   NOTA_B4,NOTA_A4,NOTA_G4, 
-
   NOTA_D5,NOTA_B4,NOTA_D5,NOTA_C5,NOTA_A4,NOTA_C5, 
   NOTA_B4,NOTA_G4,NOTA_B4,NOTA_A4,NOTA_D4,NOTA_E4,NOTA_F4,
   NOTA_G4,NOTA_A4,NOTA_B4,NOTA_C5,NOTA_D5,NOTA_C5, 
@@ -230,75 +228,70 @@ int duracion[]={
   500,500,500,250,250,
   250,250,250,250,250,250,250,250,
   500,500,500,250,250,
-
   250,250,250,250,1000,
   500,250,250,500,250,250,
   500,250,250,250,250,250,250,
   500,500,250,250,250,250,
   500,500,1000,
-
   500,250,250,500,250,250,
   500,250,250,250,250,250,250,
   500,500,250,250,250,250,
   500,500,1000 
-};
- */   
-/*Cancion de Super Mario
+};*/
+   
+/*Cancion de Super Mario*/
 const float velocidadcancion = 1.25;
 int notas[] ={ 
-  NOTA_E7, NOTA_E7, 0, NOTA_E7,
-  0, NOTA_C7, NOTA_E7, 0,
-  NOTA_G7, 0, 0,  0,
-  NOTA_G6, 0, 0, 0,
-
-  NOTA_C7, 0, 0, NOTA_G6,
-  0, 0, NOTA_E6, 0,
-  0, NOTA_A6, 0, NOTA_B6,
-  0, NOTA_AS6, NOTA_A6, 0,
-
-  NOTE_G6, NOTE_E7, NOTA_G7,
-  NOTE_A7, 0, NOTE_F7, NOTA_G7,
-  0, NOTE_E7, 0, NOTA_C7,
-  NOTE_D7, NOTA_B6, 0, 0,
-
-  NOTA_C7, 0, 0, NOTA_G6,
-  0, 0, NOTA_E6, 0,
-  0, NOTA_A6, 0, NOTA_B6,
-  0, NOTA_AS6, NOTA_A6, 0,
-
-  NOTA_G6, NOTA_E7, NOTA_G7,
-  NOTA_A7, 0, NOTA_F7, NOTA_G7,
-  0, NOTA_E7, 0, NOTA_C7,
-  NOTA_D7, NOTA_B6, 0, 0
+  NOTA_E5, NOTA_E5, 0, NOTA_E5,
+  0, NOTA_C5, NOTA_E5, 0,
+  NOTA_G5, 0, 0,  0,
+  NOTA_G4, 0, 0, 0,
+  NOTA_C5, 0, 0, NOTA_G4,
+  0, 0, NOTA_E4, 0,
+  0, NOTA_A4, 0, NOTA_B4,
+  0, NOTA_AS4, NOTA_A4, 0,
+  NOTE_G4, NOTE_E5, NOTA_G5,
+  NOTE_A5, 0, NOTE_F5, NOTA_G5,
+  0, NOTE_E5, 0, NOTA_C5,
+  NOTE_D5, NOTA_B4, 0, 0,
+  NOTA_C5, 0, 0, NOTA_G4,
+  0, 0, NOTA_E4, 0,
+  0, NOTA_A4, 0, NOTA_B4,
+  0, NOTA_AS4, NOTA_A4, 0,
+  NOTA_G4, NOTA_E5, NOTA_G5,
+  NOTA_A5, 0, NOTA_F5, NOTA_G5,
+  0, NOTA_E5, 0, NOTA_C5,
+  NOTA_D5, NOTA_B4, 0, 0
   
 };
 int duracion[]={
-  120, 120, 120, 120,
-  120, 120, 120, 120,
-  120, 120, 120, 120,
-  120, 120, 120, 120,
+  125, 125, 125, 125,
+  125, 125, 125, 125,
+  125, 125, 125, 125,
+  125, 125, 125, 125,
+  
+  125, 125, 125, 125,
+  125, 125, 125, 125,
+  125, 125, 125, 125,
+  125, 125, 125, 125,
+  
+  175, 175, 175,
+  125, 125, 125, 125,
+  125, 125, 125, 125,
+  125, 125, 125, 125,
  
-  120, 120, 120, 120,
-  120, 120, 120, 120,
-  120, 120, 120, 120,
-  120, 120, 120, 120,
- 
-  150, 150, 150,
-  120, 120, 120, 120,
-  120, 120, 120, 120,
-  120, 120, 120, 120,
- 
-  120, 120, 120, 120,
-  120, 120, 120, 120,
-  120, 120, 120, 120,
-  120, 120, 120, 120,
- 
-  150, 150, 150,
-  120, 120, 120, 120,
-  120, 120, 120, 120,
-  120, 120, 120, 120,
+  125, 125, 125, 125,
+  125, 125, 125, 125,
+  125, 125, 125, 125,
+  125, 125, 125, 125,
+  
+  175, 175, 175,
+  125, 125, 125, 125,
+  125, 125, 125, 125,
+  125, 125, 125, 125,
+  
 };
-*/
+
 void setup()
 {
   const int totalNotas = sizeof(notas) / sizeof(int);
