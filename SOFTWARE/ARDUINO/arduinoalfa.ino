@@ -10,17 +10,6 @@
 #define pin7 8
 #define pin8 9
 
-int nota[] = {
-  NOTE_C3, //DO 0
-  NOTE_D3, //RE 1
-  NOTE_E3, //MI 2
-  NOTE_F3, //FA 3
-  NOTE_G3, //SOL 4
-  NOTE_A3, //LA 5
-  NOTE_B3, //SI 6
-  NOTE_C2, //DO 7 
-};
-
 short tiempo = 8;
 
 enum Estados {MODO_MANUAL};
