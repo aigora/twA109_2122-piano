@@ -1,14 +1,14 @@
 #include "pitches.h"
 #define buzzer 8
 
-#define pin1 A0
-#define pin2 A1
-#define pin3 A2
-#define pin4 A3
-#define pin5 A4
-#define pin6 A5
-#define pin7 A6
-#define pin8 A7
+#define pin1 2
+#define pin2 3
+#define pin3 4
+#define pin4 5
+#define pin5 6
+#define pin6 7
+#define pin7 8
+#define pin8 9
 
 int nota[] = {
   NOTE_C3, //DO 0
