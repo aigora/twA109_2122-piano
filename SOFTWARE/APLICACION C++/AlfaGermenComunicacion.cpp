@@ -23,7 +23,7 @@ int Nnotas(char* cadena);
 int main(void)
 {
 	Serial* Arduino;
-	char puerto[] = "COM6"; // Puerto serie al que está conectado Arduino
+	char puerto[] = "COM6"; // Puerto serie al que estÃ¡ conectado Arduino
 	int opcion_menu;
 
 	setlocale(LC_ALL, "es-ES");
@@ -49,14 +49,14 @@ int main(void)
 			break;
 		case 5:
 			break;
-		default: printf("\nOpción incorrecta\n");
+		default: printf("\nOpciÃ³n incorrecta\n");
 		}
 	} while (opcion_menu != 5);
 	return 0;
 }
 
 
-// La función menú muestra las funciones del piano en pantalla
+// La funciÃ³n menÃº muestra las funciones del piano en pantalla
 
 int menu(void)
 {
@@ -65,14 +65,14 @@ int menu(void)
 	if (opcion != 0)
 	{
 		printf("\n");
-		printf("Menú Principal\n");
+		printf("MenÃº Principal\n");
 		printf("==============\n");
 		printf("1 - Tocar piano libremente.\n");
 		printf("2 - Grabar melodia.\n");
 		printf("3 - Reproducir ultima melodia.\n");
 		printf("4 - Ver canciones.\n");
-		printf("5 - Salir de la aplicación\n");
-		printf("Opción: ");
+		printf("5 - Salir de la aplicaciÃ³n\n");
+		printf("OpciÃ³n: ");
 	}
 	if (_kbhit())
 	{
@@ -109,7 +109,7 @@ void tocar_piano(Serial* Arduino)
 	char tecla;
 	
 
-	printf("Pulse una tecla para finalizar la monitorización\n");
+	printf("Pulse una tecla para finalizar la monitorizaciÃ³n\n");
 	do
 	{
 		if (Arduino->IsConnected())
@@ -187,14 +187,14 @@ int Nnotas (char* cadena)
 	for (i = 0; cadena[i] != '\0' && estado != 3 && i < MAX_BUFFER; i++)
 		switch (estado)
 		{
-		case 0:// Antes del número
+		case 0:// Antes del nÃºmero
 			if (cadena[i] >= '0' && cadena[i] <= '9')
 			{
 				numero = cadena[i] - '0';
 				estado = 1;
 			}
 			break;
-		case 1:// Durante el número
+		case 1:// Durante el nÃºmero
 			if (cadena[i] >= '0' && cadena[i] <= '9')
 				numero = numero * 10 + cadena[i] - '0';
 		}
