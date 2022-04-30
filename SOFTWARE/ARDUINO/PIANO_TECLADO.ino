@@ -93,14 +93,14 @@ const int buzzer = 13;
 #include "pitches.h"
 #define ACTIVATED LOW
 
-  /*NOTE_C4, //DO 0
-  NOTE_D4, //RE 1
-  NOTE_E4, //MI 2
-  NOTE_F4, //FA 3
-  NOTE_G4, //SOL 4
-  NOTE_A4, //LA 5
-  NOTE_B4, //SI 6
-  NOTE_C5, // DO 7
+  /*NOTA_C4, //DO 0
+  NOTA_D4, //RE 1
+  NOTA_E4, //MI 2
+  NOTA_F4, //FA 3
+  NOTA_G4, //SOL 4
+  NOTA_A4, //LA 5
+  NOTA_B4, //SI 6
+  NOTA_C5, // DO 7
   */
 const int BOTON_C4 = 2; //DO 1
 const int BOTON_D4 = 3; //RE 2
