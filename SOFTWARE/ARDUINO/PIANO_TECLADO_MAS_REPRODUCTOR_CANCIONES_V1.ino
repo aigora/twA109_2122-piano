@@ -402,9 +402,9 @@ void loop()
   if (digitalRead(10)==0)
       { Serial.println("Selected -> 'He is a Pirate' ");  Play_Piratas();  }
   if (digitalRead(11)==0)
-      { Serial.println("Selected -> 'Crazy Frog' ");  Play_ESPANYA();  }
+      { Serial.println("Selected -> 'Himno de ESPAÑA' ");  Play_ESPANYA();  }
   if (digitalRead(12)==0)
-      { Serial.println("Selected -> 'Mario UnderWorld' ");  Play_Mario();  }
+      { Serial.println("Selected -> 'Mario World' ");  Play_Mario();  }
    
    while(digitalRead(BOTON_C4) == ACTIVATED)
   {
