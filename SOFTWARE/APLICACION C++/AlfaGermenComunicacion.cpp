@@ -12,7 +12,7 @@
 int menu(void);
 void tocar_piano(Serial*);
 void comprobar_mensajes(Serial*);
-int grabar_notas(Serial*);
+void grabar_notas(Serial*);
 int reproducir_melodia(Serial*);
 int ver_canciones(Serial*);
 void comprobar_mensajes(Serial*);
@@ -106,23 +106,26 @@ void comprobar_mensajes(Serial* Arduino)
 void tocar_piano(Serial* Arduino)
 {
 	int notas;
+	char notasn[200];
 	char tecla;
-	
 
-	printf("Pulse una tecla para finalizar la monitorización\n");
+
+	printf("Pulse una tecla para finalizar de tocar el piano\n");
 	do
 	{
 		if (Arduino->IsConnected())
 		{
+			Arduino->ReadData(notasn, sizeof(notasn) - 1);
 			notas = leer_notas(Arduino);
+
 			if (notas != -1)
-				printf("%d", notas);
+				printf("%d ", notas);
 			else
 				printf("XXX ");
 		}
 		else
 			printf("\nNo se ha podido conectar con Arduino.\n");
-		
+
 	} while (_kbhit() == 0);
 	tecla = _getch();
 	return;
@@ -178,13 +181,13 @@ int Enviar_y_Recibir(Serial* Arduino, const char* mensaje_enviar, char* mensaje_
 
 
 
-int Nnotas (char* cadena)
+int Nnotas(char* cadena)
 {
 	int numero = 0;
 	int i, divisor = 10, estado = 0;
 
 
-	for (i = 0; cadena[i] != '\0' && estado != 3 && i < MAX_BUFFER; i++)
+	for (i = 0; cadena[i] != '\0'  && i < MAX_BUFFER; i++)
 		switch (estado)
 		{
 		case 0:// Antes del número
@@ -199,4 +202,34 @@ int Nnotas (char* cadena)
 				numero = numero * 10 + cadena[i] - '0';
 		}
 	return numero;
+}
+
+void grabar_notas(Serial* Arduino)
+{
+	int notas;
+	char notasn[200];
+	char tecla;
+
+
+	printf("Pulse una tecla para finalizar de tocar el piano\n");
+	do
+	{
+		if (Arduino->IsConnected())
+		{
+			Arduino->ReadData(notasn, sizeof(notasn) - 1);
+			notas = leer_notas(Arduino);
+
+			if (notas != -1)
+				printf("%d ", notas);
+			else
+				printf("XXX ");
+		}
+		else
+			printf("\nNo se ha podido conectar con Arduino.\n");
+
+	} while (_kbhit() == 0);
+	tecla = _getch();
+	return;
+
+
 }
