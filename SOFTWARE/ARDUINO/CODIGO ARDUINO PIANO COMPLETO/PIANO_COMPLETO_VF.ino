@@ -278,7 +278,7 @@ void Play_Piratas()
 }
 void Play_ESPANYA()
 {
-const float velocidadcancion = 1.75;
+const float velocidadcancion = 1.35;
 int notas[] ={ 
   NOTA_G4,NOTA_D4,NOTA_B4,NOTA_G4,NOTA_D5,
   NOTA_C5,NOTA_B4,NOTA_A4,NOTA_G4,NOTA_G4,NOTA_F4,NOTA_E4,NOTA_D4, 
