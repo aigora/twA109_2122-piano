@@ -117,15 +117,15 @@ int frequency[] = {262, 294, 330, 349, 392, 440, 494, 523};
 int val=0;
 unsigned long on_time=0;
 unsigned long off_time=0;
-unsigned long button_ontime[20];
-unsigned long button_offtime[20];
-int button_seq[20];
+unsigned long button_ontime[200];
+unsigned long button_offtime[200];
+int button_seq[200];
 
 int buttonPin = 2;
 int previousState = HIGH;
 unsigned int previousPress;
 volatile int buttonFlag;
-int buttonDebounce = 20;
+int buttonDebounce = 200;
 
 int path=1;
 int i=0;
