@@ -1,96 +1,5 @@
 #include "pitches.h"
 const int buzzer = 13;
-
-#define NOTA_B0  31
-#define NOTA_C1  33
-#define NOTA_CS1 35
-#define NOTA_D1  37
-#define NOTA_DS1 39
-#define NOTA_E1  41
-#define NOTA_F1  44
-#define NOTA_FS1 46
-#define NOTA_G1  49
-#define NOTA_GS1 52
-#define NOTA_A1  55
-#define NOTA_AS1 58
-#define NOTA_B1  62
-#define NOTA_C2  65
-#define NOTA_CS2 69
-#define NOTA_D2  73
-#define NOTA_DS2 78
-#define NOTA_E2  82
-#define NOTA_F2  87
-#define NOTA_FS2 93
-#define NOTA_G2  98
-#define NOTA_GS2 104
-#define NOTA_A2  110
-#define NOTA_AS2 117
-#define NOTA_B2  123
-#define NOTA_C3  131
-#define NOTA_CS3 139
-#define NOTA_D3  147
-#define NOTA_DS3 156
-#define NOTA_E3  165
-#define NOTA_F3  175
-#define NOTA_FS3 185
-#define NOTA_G3  196
-#define NOTA_GS3 208
-#define NOTA_A3  220
-#define NOTA_AS3 233
-#define NOTA_B3  247
-#define NOTA_C4  262
-#define NOTA_CS4 277
-#define NOTA_D4  294
-#define NOTA_DS4 311
-#define NOTA_E4  330
-#define NOTA_F4  349
-#define NOTA_FS4 370
-#define NOTA_G4  392
-#define NOTA_GS4 415
-#define NOTA_A4  440
-#define NOTA_AS4 466
-#define NOTA_B4  494
-#define NOTA_C5  523
-#define NOTA_CS5 554
-#define NOTA_D5  587
-#define NOTA_DS5 622
-#define NOTA_E5  659
-#define NOTA_F5  698
-#define NOTA_FS5 740
-#define NOTA_G5  784
-#define NOTA_GS5 831
-#define NOTA_A5  880
-#define NOTA_AS5 932
-#define NOTA_B5  988
-#define NOTA_C6  1047
-#define NOTA_CS6 1109
-#define NOTA_D6  1175
-#define NOTA_DS6 1245
-#define NOTA_E6  1319
-#define NOTA_F6  1397
-#define NOTA_FS6 1480
-#define NOTA_G6  1568
-#define NOTA_GS6 1661
-#define NOTA_A6  1760
-#define NOTA_AS6 1865
-#define NOTA_B6  1976
-#define NOTA_C7  2093
-#define NOTA_CS7 2217
-#define NOTA_D7  2349
-#define NOTA_DS7 2489
-#define NOTA_E7  2637
-#define NOTA_F7  2794
-#define NOTA_FS7 2960
-#define NOTA_G7  3136
-#define NOTA_GS7 3322
-#define NOTA_A7  3520
-#define NOTA_AS7 3729
-#define NOTA_B7  3951
-#define NOTA_C8  4186
-#define NOTA_CS8 4435
-#define NOTA_D8  4699
-#define NOTA_DS8 4978
-
 #define ACTIVATED LOW
 
   /*
@@ -157,58 +66,58 @@ void button_ISR()
 void Play_Piratas()
 { 
   const float velocidadcancion = 1;
-  int notas[] = {
-    NOTA_E4, NOTA_G4, NOTA_A4, NOTA_A4, 0,
-    NOTA_A4, NOTA_B4, NOTA_C5, NOTA_C5, 0,
-    NOTA_C5, NOTA_D5, NOTA_B4, NOTA_B4, 0,
-    NOTA_A4, NOTA_G4, NOTA_A4, 0,
+  int NOTES[] = {
+    NOTE_E4, NOTE_G4, NOTE_A4, NOTE_A4, 0,
+    NOTE_A4, NOTE_B4, NOTE_C5, NOTE_C5, 0,
+    NOTE_C5, NOTE_D5, NOTE_B4, NOTE_B4, 0,
+    NOTE_A4, NOTE_G4, NOTE_A4, 0,
 
-    NOTA_E4, NOTA_G4, NOTA_A4, NOTA_A4, 0,
-    NOTA_A4, NOTA_B4, NOTA_C5, NOTA_C5, 0,
-    NOTA_C5, NOTA_D5, NOTA_B4, NOTA_B4, 0,
-    NOTA_A4, NOTA_G4, NOTA_A4, 0,
+    NOTE_E4, NOTE_G4, NOTE_A4, NOTE_A4, 0,
+    NOTE_A4, NOTE_B4, NOTE_C5, NOTE_C5, 0,
+    NOTE_C5, NOTE_D5, NOTE_B4, NOTE_B4, 0,
+    NOTE_A4, NOTE_G4, NOTE_A4, 0,
 
-    NOTA_E4, NOTA_G4, NOTA_A4, NOTA_A4, 0,
-    NOTA_A4, NOTA_C5, NOTA_D5, NOTA_D5, 0,
-    NOTA_D5, NOTA_E5, NOTA_F5, NOTA_F5, 0,
-    NOTA_E5, NOTA_D5, NOTA_E5, NOTA_A4, 0,
+    NOTE_E4, NOTE_G4, NOTE_A4, NOTE_A4, 0,
+    NOTE_A4, NOTE_C5, NOTE_D5, NOTE_D5, 0,
+    NOTE_D5, NOTE_E5, NOTE_F5, NOTE_F5, 0,
+    NOTE_E5, NOTE_D5, NOTE_E5, NOTE_A4, 0,
 
-    NOTA_A4, NOTA_B4, NOTA_C5, NOTA_C5, 0,
-    NOTA_D5, NOTA_E5, NOTA_A4, 0,
-    NOTA_A4, NOTA_C5, NOTA_B4, NOTA_B4, 0,
-    NOTA_C5, NOTA_A4, NOTA_B4, 0,
+    NOTE_A4, NOTE_B4, NOTE_C5, NOTE_C5, 0,
+    NOTE_D5, NOTE_E5, NOTE_A4, 0,
+    NOTE_A4, NOTE_C5, NOTE_B4, NOTE_B4, 0,
+    NOTE_C5, NOTE_A4, NOTE_B4, 0,
 
-    NOTA_A4, NOTA_A4,
+    NOTE_A4, NOTE_A4,
     
-    NOTA_A4, NOTA_B4, NOTA_C5, NOTA_C5, 0,
-    NOTA_C5, NOTA_D5, NOTA_B4, NOTA_B4, 0,
-    NOTA_A4, NOTA_G4, NOTA_A4, 0,
+    NOTE_A4, NOTE_B4, NOTE_C5, NOTE_C5, 0,
+    NOTE_C5, NOTE_D5, NOTE_B4, NOTE_B4, 0,
+    NOTE_A4, NOTE_G4, NOTE_A4, 0,
 
-    NOTA_E4, NOTA_G4, NOTA_A4, NOTA_A4, 0,
-    NOTA_A4, NOTA_B4, NOTA_C5, NOTA_C5, 0,
-    NOTA_C5, NOTA_D5, NOTA_B4, NOTA_B4, 0,
-    NOTA_A4, NOTA_G4, NOTA_A4, 0,
+    NOTE_E4, NOTE_G4, NOTE_A4, NOTE_A4, 0,
+    NOTE_A4, NOTE_B4, NOTE_C5, NOTE_C5, 0,
+    NOTE_C5, NOTE_D5, NOTE_B4, NOTE_B4, 0,
+    NOTE_A4, NOTE_G4, NOTE_A4, 0,
 
-    NOTA_E4, NOTA_G4, NOTA_A4, NOTA_A4, 0,
-    NOTA_A4, NOTA_C5, NOTA_D5, NOTA_D5, 0,
-    NOTA_D5, NOTA_E5, NOTA_F5, NOTA_F5, 0,
-    NOTA_E5, NOTA_D5, NOTA_E5, NOTA_A4, 0,
+    NOTE_E4, NOTE_G4, NOTE_A4, NOTE_A4, 0,
+    NOTE_A4, NOTE_C5, NOTE_D5, NOTE_D5, 0,
+    NOTE_D5, NOTE_E5, NOTE_F5, NOTE_F5, 0,
+    NOTE_E5, NOTE_D5, NOTE_E5, NOTE_A4, 0,
 
-    NOTA_A4, NOTA_B4, NOTA_C5, NOTA_C5, 0,
-    NOTA_D5, NOTA_E5, NOTA_A4, 0,
-    NOTA_A4, NOTA_C5, NOTA_B4, NOTA_B4, 0,
-    NOTA_C5, NOTA_A4, NOTA_B4, 0,
+    NOTE_A4, NOTE_B4, NOTE_C5, NOTE_C5, 0,
+    NOTE_D5, NOTE_E5, NOTE_A4, 0,
+    NOTE_A4, NOTE_C5, NOTE_B4, NOTE_B4, 0,
+    NOTE_C5, NOTE_A4, NOTE_B4, 0,
     
 
-    NOTA_E5, 0, 0, NOTA_F5, 0, 0,
-    NOTA_E5, NOTA_E5, 0, NOTA_G5, 0, NOTA_E5, NOTA_D5, 0, 0,
-    NOTA_D5, 0, 0, NOTA_C5, 0, 0,
-    NOTA_B4, NOTA_C5, 0, NOTA_B4, 0, NOTA_A4,
+    NOTE_E5, 0, 0, NOTE_F5, 0, 0,
+    NOTE_E5, NOTE_E5, 0, NOTE_G5, 0, NOTE_E5, NOTE_D5, 0, 0,
+    NOTE_D5, 0, 0, NOTE_C5, 0, 0,
+    NOTE_B4, NOTE_C5, 0, NOTE_B4, 0, NOTE_A4,
 
-    NOTA_E5, 0, 0, NOTA_F5, 0, 0,
-    NOTA_E5, NOTA_E5, 0, NOTA_G5, 0, NOTA_E5, NOTA_D5, 0, 0,
-    NOTA_D5, 0, 0, NOTA_C5, 0, 0,
-    NOTA_B4, NOTA_C5, 0, NOTA_B4, 0, NOTA_A4};
+    NOTE_E5, 0, 0, NOTE_F5, 0, 0,
+    NOTE_E5, NOTE_E5, 0, NOTE_G5, 0, NOTE_E5, NOTE_D5, 0, 0,
+    NOTE_D5, 0, 0, NOTE_C5, 0, 0,
+    NOTE_B4, NOTE_C5, 0, NOTE_B4, 0, NOTE_A4};
     int duracion[] = {
     125, 125, 250, 125, 125,
     125, 125, 250, 125, 125,
@@ -261,13 +170,13 @@ void Play_Piratas()
     125, 125, 125, 125, 125, 125, 125, 125, 375,
     250, 125, 375, 250, 125, 375,
     125, 125, 125, 125, 125, 500};
-    const int totalNotas = sizeof(notas) / sizeof(int);
-    for (int i = 0; i < totalNotas; i++)
+    const int totalNOTES = sizeof(NOTES) / sizeof(int);
+    for (int i = 0; i < totalNOTES; i++)
     {
-      const int currentNota = notas[i];float wait = duracion[i] / velocidadcancion;
-      if (currentNota != 0)
+      const int currentNOTE = NOTES[i];float wait = duracion[i] / velocidadcancion;
+      if (currentNOTE != 0)
       {
-        tone(buzzer, notas[i], wait);
+        tone(buzzer, NOTES[i], wait);
       }
       else
       {
@@ -279,24 +188,24 @@ void Play_Piratas()
 void Play_ESPANYA()
 {
 const float velocidadcancion = 1.35;
-int notas[] ={ 
-  NOTA_G4,NOTA_D4,NOTA_B4,NOTA_G4,NOTA_D5,
-  NOTA_C5,NOTA_B4,NOTA_A4,NOTA_G4,NOTA_G4,NOTA_F4,NOTA_E4,NOTA_D4, 
-  NOTA_G4,NOTA_A4,NOTA_B4,0,NOTA_D5, 
-  NOTA_C5,NOTA_B4,NOTA_A4,NOTA_G4,NOTA_D5,
-  NOTA_G4,NOTA_D4,NOTA_B4,NOTA_G4,NOTA_D5,
-  NOTA_C5,NOTA_B4,NOTA_A4,NOTA_G4,NOTA_G4,NOTA_F4,NOTA_E4,NOTA_D4, 
-  NOTA_G4,NOTA_A4,NOTA_B4,0,NOTA_D5,
+int NOTES[] ={ 
+  NOTE_G4,NOTE_D4,NOTE_B4,NOTE_G4,NOTE_D5,
+  NOTE_C5,NOTE_B4,NOTE_A4,NOTE_G4,NOTE_G4,NOTE_F4,NOTE_E4,NOTE_D4, 
+  NOTE_G4,NOTE_A4,NOTE_B4,0,NOTE_D5, 
+  NOTE_C5,NOTE_B4,NOTE_A4,NOTE_G4,NOTE_D5,
+  NOTE_G4,NOTE_D4,NOTE_B4,NOTE_G4,NOTE_D5,
+  NOTE_C5,NOTE_B4,NOTE_A4,NOTE_G4,NOTE_G4,NOTE_F4,NOTE_E4,NOTE_D4, 
+  NOTE_G4,NOTE_A4,NOTE_B4,0,NOTE_D5,
   
-  NOTA_C5,NOTA_B4,NOTA_A4,NOTA_G4,NOTA_D5, 
-  NOTA_D5,NOTA_B4,NOTA_D5,NOTA_C5,NOTA_A4,NOTA_C5, 
-  NOTA_B4,NOTA_G4,NOTA_B4,NOTA_A4,NOTA_D4,NOTA_E4,NOTA_F4, 
-  NOTA_G4,NOTA_A4,NOTA_B4,NOTA_C5,NOTA_D5,NOTA_C5, 
-  NOTA_B4,NOTA_A4,NOTA_G4, 
-  NOTA_D5,NOTA_B4,NOTA_D5,NOTA_C5,NOTA_A4,NOTA_C5, 
-  NOTA_B4,NOTA_G4,NOTA_B4,NOTA_A4,NOTA_D4,NOTA_E4,NOTA_F4,
-  NOTA_G4,NOTA_A4,NOTA_B4,NOTA_C5,NOTA_D5,NOTA_C5, 
-  NOTA_B4,NOTA_A4,NOTA_G4 
+  NOTE_C5,NOTE_B4,NOTE_A4,NOTE_G4,NOTE_D5, 
+  NOTE_D5,NOTE_B4,NOTE_D5,NOTE_C5,NOTE_A4,NOTE_C5, 
+  NOTE_B4,NOTE_G4,NOTE_B4,NOTE_A4,NOTE_D4,NOTE_E4,NOTE_F4, 
+  NOTE_G4,NOTE_A4,NOTE_B4,NOTE_C5,NOTE_D5,NOTE_C5, 
+  NOTE_B4,NOTE_A4,NOTE_G4, 
+  NOTE_D5,NOTE_B4,NOTE_D5,NOTE_C5,NOTE_A4,NOTE_C5, 
+  NOTE_B4,NOTE_G4,NOTE_B4,NOTE_A4,NOTE_D4,NOTE_E4,NOTE_F4,
+  NOTE_G4,NOTE_A4,NOTE_B4,NOTE_C5,NOTE_D5,NOTE_C5, 
+  NOTE_B4,NOTE_A4,NOTE_G4 
 };
 int duracion[]={
   500,500,500,250,250,
@@ -316,15 +225,15 @@ int duracion[]={
   500,500,250,250,250,250,
   500,500,1000 
 };
-  const int totalNotas = sizeof(notas) / sizeof(int);
-  for (int i = 0; i < totalNotas; i++)
+  const int totalNOTES = sizeof(NOTES) / sizeof(int);
+  for (int i = 0; i < totalNOTES; i++)
   {
-    const int currentNota = notas[i];
+    const int currentNOTE = NOTES[i];
     float wait = duracion[i] / velocidadcancion;
    
-    if (currentNota != 0)
+    if (currentNOTE != 0)
     {
-      tone(buzzer, notas[i], wait);
+      tone(buzzer, NOTES[i], wait);
     }
     else
     {
@@ -338,27 +247,27 @@ int duracion[]={
 void Play_Mario()
 {
 const float velocidadcancion = 1.25;
-int notas[] ={ 
-  NOTA_E5, NOTA_E5, 0, NOTA_E5,
-  0, NOTA_C5, NOTA_E5, 0,
-  NOTA_G5, 0, 0,  0,
-  NOTA_G4, 0, 0, 0,
-  NOTA_C5, 0, 0, NOTA_G4,
-  0, 0, NOTA_E4, 0,
-  0, NOTA_A4, 0, NOTA_B4,
-  0, NOTA_AS4, NOTA_A4, 0,
-  NOTE_G4, NOTE_E5, NOTA_G5,
-  NOTE_A5, 0, NOTE_F5, NOTA_G5,
-  0, NOTE_E5, 0, NOTA_C5,
-  NOTE_D5, NOTA_B4, 0, 0,
-  NOTA_C5, 0, 0, NOTA_G4,
-  0, 0, NOTA_E4, 0,
-  0, NOTA_A4, 0, NOTA_B4,
-  0, NOTA_AS4, NOTA_A4, 0,
-  NOTA_G4, NOTA_E5, NOTA_G5,
-  NOTA_A5, 0, NOTA_F5, NOTA_G5,
-  0, NOTA_E5, 0, NOTA_C5,
-  NOTA_D5, NOTA_B4, 0, 0
+int NOTES[] ={ 
+  NOTE_E5, NOTE_E5, 0, NOTE_E5,
+  0, NOTE_C5, NOTE_E5, 0,
+  NOTE_G5, 0, 0,  0,
+  NOTE_G4, 0, 0, 0,
+  NOTE_C5, 0, 0, NOTE_G4,
+  0, 0, NOTE_E4, 0,
+  0, NOTE_A4, 0, NOTE_B4,
+  0, NOTE_AS4, NOTE_A4, 0,
+  NOTE_G4, NOTE_E5, NOTE_G5,
+  NOTE_A5, 0, NOTE_F5, NOTE_G5,
+  0, NOTE_E5, 0, NOTE_C5,
+  NOTE_D5, NOTE_B4, 0, 0,
+  NOTE_C5, 0, 0, NOTE_G4,
+  0, 0, NOTE_E4, 0,
+  0, NOTE_A4, 0, NOTE_B4,
+  0, NOTE_AS4, NOTE_A4, 0,
+  NOTE_G4, NOTE_E5, NOTE_G5,
+  NOTE_A5, 0, NOTE_F5, NOTE_G5,
+  0, NOTE_E5, 0, NOTE_C5,
+  NOTE_D5, NOTE_B4, 0, 0
   
 };
 int duracion[]={
@@ -388,15 +297,15 @@ int duracion[]={
   125, 125, 125, 125,
   
 };
-const int totalNotas = sizeof(notas) / sizeof(int);
+const int totalNOTES = sizeof(NOTES) / sizeof(int);
 
-  for (int i = 0; i < totalNotas; i++)
+  for (int i = 0; i < totalNOTES; i++)
   {
-    const int currentNota = notas[i];
+    const int currentNOTE = NOTES[i];
     float wait = duracion[i] / velocidadcancion;
-    if (currentNota != 0)
+    if (currentNOTE != 0)
     {
-      tone(buzzer, notas[i], wait);
+      tone(buzzer, NOTES[i], wait);
     }
     else
     {
@@ -431,7 +340,7 @@ void loop()
   if (digitalRead(29)==0)
       { Serial.println("Selected -> 'He is a Pirate' ");  Play_Piratas();  }
   if (digitalRead(31)==0)
-      { Serial.println("Selected -> 'Crazy Frog' ");  Play_ESPANYA();  }
+      { Serial.println("Selected -> 'Himno de Espanya' ");  Play_ESPANYA();  }
   if (digitalRead(33)==0)
       { Serial.println("Selected -> 'Mario UnderWorld' ");  Play_Mario();  }
 if(path==0)
