@@ -9,7 +9,7 @@ Cuando presionemos un **boton** el zumbador vibrará, reproduciendose un sonido,
 - Boton 7--->SI
 - Boton 8--->DO
 # CANCIONES 
-Arduino UNO cuenta con una memoria de kb, es por eso que el reproductor de canciones sera de canciones de 8 bits.
+El arduino cuenta con una memoria de kb, es por eso que el reproductor de canciones sera de canciones de 8 bits.
 Anteriormente estas canciones habran sido transformadas del formato MP3 a 8 bits.
 Ejemplo de canciones:
 
@@ -17,5 +17,5 @@ Ejemplo de canciones:
 - Tema de Super Mario Bros.
 - Canción de Piratas del Caribe.
 
-Estas canciones seran almacenadas en la memoria y administradas por la aplicacion.
+Estas canciones seran almacenadas en la memoria.
 
