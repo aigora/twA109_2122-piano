@@ -242,6 +242,7 @@ void ver_canciones(Serial*)
 	printf("1- He is a Pirate\n");
 	printf("2- Crazy Frog\n");
 	printf("3- Level Theme: Mario Underworld\n");
+	printf("Elija opcion: ");
 	
 	while(opcion > 0 && opcion <4)
 	{
