@@ -1,5 +1,7 @@
 #include "pitches.h"
 const int buzzer = 13;
+
+
 #define ACTIVATED LOW
 
   /*
@@ -66,7 +68,7 @@ void button_ISR()
 void Play_Piratas()
 { 
   const float velocidadcancion = 1;
-  int NOTES[] = {
+  int notas[] = {
     NOTE_E4, NOTE_G4, NOTE_A4, NOTE_A4, 0,
     NOTE_A4, NOTE_B4, NOTE_C5, NOTE_C5, 0,
     NOTE_C5, NOTE_D5, NOTE_B4, NOTE_B4, 0,
@@ -170,13 +172,13 @@ void Play_Piratas()
     125, 125, 125, 125, 125, 125, 125, 125, 375,
     250, 125, 375, 250, 125, 375,
     125, 125, 125, 125, 125, 500};
-    const int totalNOTES = sizeof(NOTES) / sizeof(int);
-    for (int i = 0; i < totalNOTES; i++)
+    const int totalNotas = sizeof(notas) / sizeof(int);
+    for (int i = 0; i < totalNotas; i++)
     {
-      const int currentNOTE = NOTES[i];float wait = duracion[i] / velocidadcancion;
-      if (currentNOTE != 0)
+      const int currentNota = notas[i];float wait = duracion[i] / velocidadcancion;
+      if (currentNota != 0)
       {
-        tone(buzzer, NOTES[i], wait);
+        tone(buzzer, notas[i], wait);
       }
       else
       {
@@ -188,7 +190,7 @@ void Play_Piratas()
 void Play_ESPANYA()
 {
 const float velocidadcancion = 1.35;
-int NOTES[] ={ 
+int notas[] ={ 
   NOTE_G4,NOTE_D4,NOTE_B4,NOTE_G4,NOTE_D5,
   NOTE_C5,NOTE_B4,NOTE_A4,NOTE_G4,NOTE_G4,NOTE_F4,NOTE_E4,NOTE_D4, 
   NOTE_G4,NOTE_A4,NOTE_B4,0,NOTE_D5, 
@@ -225,15 +227,15 @@ int duracion[]={
   500,500,250,250,250,250,
   500,500,1000 
 };
-  const int totalNOTES = sizeof(NOTES) / sizeof(int);
-  for (int i = 0; i < totalNOTES; i++)
+  const int totalNotas = sizeof(notas) / sizeof(int);
+  for (int i = 0; i < totalNotas; i++)
   {
-    const int currentNOTE = NOTES[i];
+    const int currentNota = notas[i];
     float wait = duracion[i] / velocidadcancion;
    
-    if (currentNOTE != 0)
+    if (currentNota != 0)
     {
-      tone(buzzer, NOTES[i], wait);
+      tone(buzzer, notas[i], wait);
     }
     else
     {
@@ -247,7 +249,7 @@ int duracion[]={
 void Play_Mario()
 {
 const float velocidadcancion = 1.25;
-int NOTES[] ={ 
+int notas[] ={ 
   NOTE_E5, NOTE_E5, 0, NOTE_E5,
   0, NOTE_C5, NOTE_E5, 0,
   NOTE_G5, 0, 0,  0,
@@ -297,15 +299,15 @@ int duracion[]={
   125, 125, 125, 125,
   
 };
-const int totalNOTES = sizeof(NOTES) / sizeof(int);
+const int totalNotas = sizeof(notas) / sizeof(int);
 
-  for (int i = 0; i < totalNOTES; i++)
+  for (int i = 0; i < totalNotas; i++)
   {
-    const int currentNOTE = NOTES[i];
+    const int currentNota = notas[i];
     float wait = duracion[i] / velocidadcancion;
-    if (currentNOTE != 0)
+    if (currentNota != 0)
     {
-      tone(buzzer, NOTES[i], wait);
+      tone(buzzer, notas[i], wait);
     }
     else
     {
@@ -337,15 +339,20 @@ void setup()
 
 void loop() 
 {
-  if (digitalRead(29)==0)
-      { Serial.println("Selected -> 'He is a Pirate' ");  Play_Piratas();  }
-  if (digitalRead(31)==0)
-      { Serial.println("Selected -> 'Himno de Espanya' ");  Play_ESPANYA();  }
-  if (digitalRead(33)==0)
-      { Serial.println("Selected -> 'Mario UnderWorld' ");  Play_Mario();  }
+
+     if (digitalRead(29)==0)
+      { Serial.println("Selected -> 'He is a Pirate' ");  Play_Piratas();  
+        }
+     if (digitalRead(31)==0)
+      { Serial.println("Selected -> 'Himno de España' ");  Play_ESPANYA();  
+        }
+     if (digitalRead(33)==0)
+      { Serial.println("<\nSelected -> 'Mario UnderWorld' ");  Play_Mario();  
+        }
+      
 if(path==0)
 {
-  Serial.println("playback");
+  //Serial.println("playback");
   playback();
 }
 if((millis() - previousPress) > buttonDebounce && buttonFlag)
@@ -381,6 +388,7 @@ if(digitalRead(BOTON_C4)==LOW)
     i++;
 
   }
+  Serial.println("DO");
 }
 
 else if(digitalRead(BOTON_D4)==LOW)
@@ -398,6 +406,7 @@ if(path==1)
      i++;
  
   }
+  Serial.println("RE");
 }
 
 else if(digitalRead(BOTON_E4)==LOW)
@@ -415,6 +424,7 @@ if(path==1)
      i++;
 
   }
+  Serial.println("MI");
 }
 
 else if(digitalRead(BOTON_F4)==LOW)
@@ -432,6 +442,7 @@ if(path==1)
      i++;
 
   }
+  Serial.println("FA");
 }
 
 else if(digitalRead(BOTON_G4)==LOW)
@@ -449,6 +460,7 @@ if(path==1)
      i++;
 
   }
+  Serial.println("SOL");
 }
 
 else if(digitalRead(BOTON_A4)==LOW)
@@ -466,6 +478,7 @@ if(path==1)
      i++;
    
   }
+  Serial.println("LA");
 }
 
 else if(digitalRead(BOTON_B4)==LOW)
@@ -483,10 +496,12 @@ if(path==1)
      i++;
    
   }
+  Serial.println("SI");
 }
 else if(digitalRead(BOTON_C5)==LOW)
 {
 tone(buzzer,frequency[7]);
+
 on_time=millis();
 if(i!=0)
 button_offtime[i-1]=on_time-off_time;
@@ -499,7 +514,7 @@ if(path==1)
      i++;
    
   }
+  Serial.println("DO'");
 }
-
-noTone(buzzer);
+noTone(buzzer);      
 }
