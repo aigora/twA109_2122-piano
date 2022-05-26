@@ -13,8 +13,7 @@ int menu(void);
 void tocar_piano(Serial*);
 void comprobar_mensajes(Serial*);
 void grabar_notas(Serial*);
-int reproducir_melodia(Serial*);
-int ver_canciones(Serial*);
+void ver_canciones(Serial*);
 void comprobar_mensajes(Serial*);
 int leer_notas(Serial*);
 int Enviar_y_Recibir(Serial*, const char*, char*);
@@ -42,16 +41,13 @@ int main(void)
 			grabar_notas(Arduino);
 			break;
 		case 3:
-			reproducir_melodia(Arduino);
-			break;
-		case 4:
 			ver_canciones(Arduino);
 			break;
-		case 5:
+		case 4:
 			break;
 		default: printf("\nOpción incorrecta\n");
 		}
-	} while (opcion_menu != 5);
+	} while (opcion_menu != 4);
 	return 0;
 }
 
@@ -68,10 +64,9 @@ int menu(void)
 		printf("Menú Principal\n");
 		printf("==============\n");
 		printf("1 - Tocar piano libremente.\n");
-		printf("2 - Grabar melodia.\n");
-		printf("3 - Reproducir ultima melodia.\n");
-		printf("4 - Ver canciones.\n");
-		printf("5 - Salir de la aplicación\n");
+		printf("2 - Grabar melodia y reproducirla.\n");
+		printf("3 - Ver canciones.\n");
+		printf("4 - Salir de la aplicación\n");
 		printf("Opción: ");
 	}
 	if (_kbhit())
@@ -206,7 +201,7 @@ int Nnotas(char* cadena)
 
 void grabar_notas(Serial* Arduino)
 {
-	int notas;
+	int notas,j=0;
 	char notasn[200];
 	char tecla;
 
@@ -217,10 +212,10 @@ void grabar_notas(Serial* Arduino)
 		if (Arduino->IsConnected())
 		{
 			Arduino->ReadData(notasn, sizeof(notasn) - 1);
-			notas = leer_notas(Arduino);
+			notasn = leer_notas(Arduino);
 
-			if (notas != -1)
-				printf("%d ", notas);
+			if (notans != '\0')
+				printf("%s ", notasn);
 			else
 				printf("XXX ");
 		}
@@ -229,7 +224,34 @@ void grabar_notas(Serial* Arduino)
 
 	} while (_kbhit() == 0);
 	tecla = _getch();
+	
+	 for(j=0;j<i;j++)
+	 {
+		 Arduino->WriteData((char*)notasn, strlen(notasn));
+	         Sleep(PAUSA_MS);
+	 }
+	
 	return;
+}
 
-
+void ver_canciones(Serial*)
+{
+	int i=0,opcion=0;
+	
+	printf("Lista de canciones:\n");
+	printf("1- He is a Pirate\n");
+	printf("2- Crazy Frog\n");
+	printf("3- Level Theme: Mario Underworld\n");
+	
+	while(opcion > 0 && opcion <4)
+	{
+		scanf_s("%d",&opcion);
+		if(opcion > 0 && opcion <4)
+			printf("Elija una opcion entre 1 y 3: \n");
+	}
+	
+	Arduino->WriteData((int)opcion);
+	Sleep(PAUSA_MS);
+	
+	return;
 }
