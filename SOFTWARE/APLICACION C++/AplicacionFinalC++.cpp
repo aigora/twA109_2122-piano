@@ -182,7 +182,7 @@ int Nnotas(char* cadena)
 	int i, divisor = 10, estado = 0;
 
 
-	for (i = 0; cadena[i] != '\0'  && i < MAX_BUFFER; i++)
+	for (i = 0; cadena[i] != '\0' && i < MAX_BUFFER; i++)
 		switch (estado)
 		{
 		case 0:// Antes del número
@@ -201,8 +201,8 @@ int Nnotas(char* cadena)
 
 void grabar_notas(Serial* Arduino)
 {
-	int notas,j=0;
-	char notasn[200];
+	int notas, j = 0,i=0;
+	char notasn;
 	char tecla;
 
 
@@ -211,10 +211,10 @@ void grabar_notas(Serial* Arduino)
 	{
 		if (Arduino->IsConnected())
 		{
-			Arduino->ReadData(notasn, sizeof(notasn) - 1);
+			Arduino->ReadData(&notasn, sizeof(notasn) - 1);
 			notasn = leer_notas(Arduino);
 
-			if (notans != '\0')
+			if (notasn != ',')
 				printf("%s ", notasn);
 			else
 				printf("XXX ");
@@ -224,35 +224,36 @@ void grabar_notas(Serial* Arduino)
 
 	} while (_kbhit() == 0);
 	tecla = _getch();
-	
-	 for(j=0;j<i;j++)
-	 {
-		 Arduino->WriteData((char*)notasn, strlen(notasn));
-	         Sleep(PAUSA_MS);
-	 }
-	
+
+	for (j = 0; j < i; j++)
+	{
+		Arduino->WriteData((char*)notasn, strlen(&notasn));
+		Sleep(PAUSA_MS);
+	}
+
 	return;
 }
 
-void ver_canciones(Serial*)
+void ver_canciones(Serial* Arduino)
 {
-	int i=0,opcion=0;
-	
+	int i = 0;
+	char opcion;
+
 	printf("Lista de canciones:\n");
 	printf("1- He is a Pirate\n");
 	printf("2- Himno de España\n");
 	printf("3- Level Theme: Mario Underworld\n");
 	printf("Elija opcion: ");
-	
-	while(opcion > 0 && opcion <4)
+
+	while (opcion > 0 && opcion < 4)
 	{
-		scanf_s("%d",&opcion);
-		if(opcion > 0 && opcion <4)
+		scanf_s("%d", &opcion);
+		if (opcion > 0 && opcion < 4)
 			printf("Elija una opcion entre 1 y 3: \n");
 	}
-	
-	Arduino->WriteData((int)opcion);
+
+	Arduino->WriteData((char*)opcion, sizeof(opcion) - 1);
 	Sleep(PAUSA_MS);
-	
+
 	return;
 }
