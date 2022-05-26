@@ -240,7 +240,7 @@ void ver_canciones(Serial*)
 	
 	printf("Lista de canciones:\n");
 	printf("1- He is a Pirate\n");
-	printf("2- Crazy Frog\n");
+	printf("2- Himno de España\n");
 	printf("3- Level Theme: Mario Underworld\n");
 	printf("Elija opcion: ");
 	
