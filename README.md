@@ -21,14 +21,19 @@ Además podremos empezar a desarrollar nuestros propios proyectos ya sea con un 
 Si el arduino está conectado por cable al ordenador el programa de Visual 
 Primero solicitara que selecciones un usuario e introduzcas una contraseña.Por ejemplo:
 **Selecione usuario:**
+
 1. UsuarioA
 2. UsuarioB
 3. UsuarioC
+ 
 **Contraseña:**
+
 Una vez introducido el usuario se mostrará este menú:
+
 1. Tocar piano.
 2. Grabar melodia y reproducirla.
 3. Ver canciones.
 4. Salir de la aplicación.
+
 Si el arduino no está conectado al ordenador se solicitará que se conecte el arduino para poder funcionar.
 
