@@ -8,6 +8,7 @@ Javier Lerín Alonoso @javier.lerin.alonso
 
 Jorge Riveiro Ortiz @jorge.riveiro
 
+Álvaro Sánchez Barba @alvaro.sanchez.barba
 
 ## Objetivos del trabajo
 
