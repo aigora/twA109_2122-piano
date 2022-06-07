@@ -20,6 +20,7 @@ Además podremos empezar a desarrollar nuestros propios proyectos ya sea con un 
 
 Si el arduino está conectado por cable al ordenador el programa de Visual 
 Primero solicitara que selecciones un usuario e introduzcas una contraseña.Por ejemplo:
+
 **Selecione usuario:**
 
 1. UsuarioA
