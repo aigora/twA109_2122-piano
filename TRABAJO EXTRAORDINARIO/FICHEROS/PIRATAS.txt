@@ -1,0 +1,51 @@
+    MI, SOL, LA, LA, 0,
+    LA, SI, DO, DO, 0,
+    DO, RE, SI, SI, 0,
+    LA, SOL, LA, 0,
+
+    MI, SOL, LA, LA, 0,
+    LA, SI, DO, DO, 0,
+    DO, RE, SI, SI, 0,
+    LA, SOL, LA, 0,
+
+    MI, SOL, LA, LA, 0,
+    LA, DO, RE, RE, 0,
+    RE, MI, FA, FA, 0,
+    MI, RE, MI, LA, 0,
+
+    LA, SI, DO, DO, 0,
+    RE, MI, LA, 0,
+    LA, DO, SI, SI, 0,
+    DO, LA, SI, 0,
+
+    LA, LA,
+    
+    LA, SI, DO, DO, 0,
+    DO, RE, SI, SI, 0,
+    LA, SOL, LA, 0,
+
+    MI, SOL, LA, LA, 0,
+    LA, SI, DO, DO, 0,
+    DO, RE, SI, SI, 0,
+    LA, SOL, LA, 0,
+
+    MI, SOL, LA, LA, 0,
+    LA, DO, RE, RE, 0,
+    RE, MI, FA, FA, 0,
+    MI, RE, MI, LA, 0,
+
+    LA, SI, DO, DO, 0,
+    RE, MI, LA, 0,
+    LA, DO, SI, SI, 0,
+    DO, LA, SI, 0,
+    
+
+    MI, 0, 0, FA, 0, 0,
+    MI, MI, 0, SOL, 0, MI, RE, 0, 0,
+    RE, 0, 0, DO, 0, 0,
+    SI, DO, 0, SI, 0, LA,
+
+    MI, 0, 0, FA, 0, 0,
+    MI, MI, 0, SOL, 0, MI, RE, 0, 0,
+    RE, 0, 0, DO, 0, 0,
+    SI, DO, 0, SI, 0, LA
