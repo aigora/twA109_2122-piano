@@ -1,26 +1,25 @@
 #include "pitches.h"
 #define ACTIVATED LOW
-
-  /*NOTE_C4, //DO 0
-  NOTE_D4, //RE 1
-  NOTE_E4, //MI 2
-  NOTE_F4, //FA 3
-  NOTE_G4, //SOL 4
-  NOTE_A4, //LA 5
-  NOTE_B4, //SI 6
-  NOTE_C5, // DO 7
+/*
+NOTE_C4, //DO 0
+NOTE_D4, //RE 1
+NOTE_E4, //MI 2
+NOTE_F4, //FA 3
+NOTE_G4, //SOL 4
+NOTE_A4, //LA 5
+NOTE_B4, //SI 6
+NOTE_C5, // DO 7
   */
-const int BOTON_C4 = 3; //DO 1
-const int BOTON_D4 = 4; //RE 2
-const int BOTON_E4 = 5; //MI 3
-const int BOTON_F4 = 6; //FA 4
-const int BOTON_G4 = 7; //SOL 5
-const int BOTON_A4 = 8; //LA 6
-const int BOTON_B4 = 9; //SI 7
-const int BOTON_C5 = 10; //DO 8
+const int BOTON_C4 = 3; //DO 0-->262
+const int BOTON_D4 = 4; //RE 1-->294
+const int BOTON_E4 = 5; //MI 2-->330
+const int BOTON_F4 = 6; //FA 3-->349
+const int BOTON_G4 = 7; //SOL 4-->392 
+const int BOTON_A4 = 8; //LA 5-->440 
+const int BOTON_B4 = 9; //SI 6--> 494
+const int BOTON_C5 = 10; //DO 7--> 523
 
 int frequency[] = {262, 294, 330, 349, 392, 440, 494, 523};
-
 int val=0;
 unsigned long on_time=0;
 unsigned long off_time=0;
