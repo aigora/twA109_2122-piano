@@ -46,7 +46,9 @@ void setup()
 Serial.begin(9600);
 
 pinMode(buzzer,OUTPUT);
-
+pinMode(29, INPUT_PULLUP); //Buton 1
+pinMode(31, INPUT_PULLUP); //Buton 2
+pinMode(33, INPUT_PULLUP); //Buton 3 
 pinMode(BOTON_C4,INPUT_PULLUP);
 pinMode(BOTON_D4,INPUT_PULLUP);
 pinMode(BOTON_E4,INPUT_PULLUP);
@@ -146,6 +148,16 @@ BOTON = BOTON_C5;
 f=7;
 GRABAR_NOTA();
 }
+if (digitalRead(29)==0)
+      { Serial.println("Selected -> 'He is a Pirate' "); Piratas();  
+        }
+     if (digitalRead(31)==0)
+      { Serial.println("Selected -> 'Himno de España' "); ESPANYA();  
+        }
+     if (digitalRead(33)==0)
+      { Serial.println("Selected -> 'Mario UnderWorld' "); Mario();  
+        } 
+ 
 noTone(buzzer);
 }
 
