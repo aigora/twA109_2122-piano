@@ -3,257 +3,425 @@
 #include <string.h>
 #include <locale.h>
 #include <conio.h>
+#include <string.h>
+#include <malloc.h>
 #include "SerialClass/SerialClass.h"
 
-#define MAX_BUFFER 200
-#define PAUSA_MS 200
+#define MAX_BUFFER 300
+#define PAUSA_MS 500
+#define DIM 200
+#define TAM 50
+#define MAX 10
 
-// Funciones prototipo del piano beta (no estan todas las funciones)
-int menu(void);
-void tocar_piano(Serial*);
-void comprobar_mensajes(Serial*);
-void grabar_notas(Serial*);
-void ver_canciones(Serial*);
-void comprobar_mensajes(Serial*);
-int leer_notas(Serial*);
-int Enviar_y_Recibir(Serial*, const char*, char*);
-int Nnotas(char* cadena);
+typedef struct
+{
+	char nombre[TAM];
+	int canciones;
+
+}Usuario;
+
+//funciones principales
+void menu(int, Serial*);
+int opciones(void);
+void start(Serial*);
+int obtener_notas(Serial*, char*);
+//void tocar_piano(Serial*);
+//char conv_a_notas(char[]);
+void elegir_cancion(Serial*, Usuario[], int);
+
+//funciones para guardar y leer ficheros de canciones
+//int grabar_cancion(Serial*, Usuario[], int);
+
+
+//funciones de usuarios
+int buscar_usuarios(Usuario[], int, char const*);
+int  alta_usuario(Usuario[], int);
+void crear_fichero(Usuario[], int);
+int leer_fichero(Usuario[]);
+void listado_de_usuarios(Usuario[], int);
+
 
 int main(void)
 {
 	Serial* Arduino;
-	char puerto[] = "COM6"; // Puerto serie al que está conectado Arduino
-	int opcion_menu;
+	char puerto[] = "COM3"; // Puerto serie al que está conectado Arduino
+
+	int opcion_menu=0;
 
 	setlocale(LC_ALL, "es-ES");
 	Arduino = new Serial((char*)puerto);
-	do
-	{
-		comprobar_mensajes(Arduino);
-		opcion_menu = menu();
-		switch (opcion_menu)
-		{
-		case 0: break;
-		case 1:
-			tocar_piano(Arduino);
-			break;
-		case 2:
-			grabar_notas(Arduino);
-			break;
-		case 3:
-			ver_canciones(Arduino);
-			break;
-		case 4:
-			break;
-		default: printf("\nOpción incorrecta\n");
-		}
-	} while (opcion_menu != 4);
+
+	menu(opcion_menu, Arduino);
+
 	return 0;
 }
 
-
-// La función menú muestra las funciones del piano en pantalla
-
-int menu(void)
+void menu(int opc_menu, Serial* Arduino)
 {
-	static int opcion = -1;
-
-	if (opcion != 0)
-	{
-		printf("\n");
-		printf("Menú Principal\n");
-		printf("==============\n");
-		printf("1 - Tocar piano libremente.\n");
-		printf("2 - Grabar melodia y reproducirla.\n");
-		printf("3 - Ver canciones.\n");
-		printf("4 - Salir de la aplicación\n");
-		printf("Opción: ");
-	}
-	if (_kbhit())
-	{
-		opcion = (int)_getch() - '0';
-		printf("%d\n", opcion);
-	}
-	else
-		opcion = 0;
-	return opcion;
-}
-
-void comprobar_mensajes(Serial* Arduino)
-{
-	int bytesRecibidos, total = 0;
-	char mensaje_recibido[MAX_BUFFER];
-
-	bytesRecibidos = Arduino->ReadData(mensaje_recibido, sizeof(char) * MAX_BUFFER - 1);
-	while (bytesRecibidos > 0)
-	{
-		Sleep(PAUSA_MS);
-		total += bytesRecibidos;
-		bytesRecibidos = Arduino->ReadData(mensaje_recibido + total, sizeof(char) * MAX_BUFFER - 1);
-	}
-	if (total > 0)
-	{
-		mensaje_recibido[total - 1] = '\0';
-		printf("\nMensaje recibido: %s\n", mensaje_recibido);
-	}
-}
-
-void tocar_piano(Serial* Arduino)
-{
-	int notas;
-	char notasn[200];
+	char notasn, nombre_us[TAM];
 	char tecla;
+	int notas = 0, i, cancion = 1;
+	int nusuarios, n_usuario;
+	Usuario usuarios[MAX];
 
+	nusuarios = leer_fichero(usuarios);
 
-	printf("Pulse una tecla para finalizar de tocar el piano\n");
 	do
 	{
-		if (Arduino->IsConnected())
-		{
-			Arduino->ReadData(notasn, sizeof(notasn) - 1);
-			notas = leer_notas(Arduino);
+		opc_menu = opciones();
 
-			if (notas != -1)
-				printf("%d ", notas);
+		switch (opc_menu)
+		{
+
+		case 1:
+			/*do {
+				printf("¿Que usuario eres?\n");
+				scanf_s("%s", nombre_us, TAM);
+
+				n_usuario = buscar_usuarios(usuarios, nusuarios, nombre_us);
+			} while (n_usuario == 11);*/
+
+			//tocar_piano(Arduino);
+			if (Arduino->IsConnected())
+			{
+				printf("\nArduino conectado.\n");
+				do
+				{
+					Arduino->ReadData(&notasn, sizeof(notasn));
+
+					Sleep(20);
+					if (notasn != 'a')
+						printf("%c", notasn);
+					else
+						printf("XXX ");
+					Sleep(100);
+
+				} while (_kbhit() == 0);
+			}
 			else
-				printf("XXX ");
+				printf("\nNo se ha podido conectar con Arduino.\n");
+
+			break;
+		case 2:
+			do {
+				printf("¿Que usuario eres?\n");
+				scanf_s("%s", nombre_us, TAM);
+
+				n_usuario = buscar_usuarios(usuarios, nusuarios, nombre_us);
+			} while (n_usuario == 11);
+
+			//grabar(Arduino, usuarios, n_usuario, nusuarios);
+			if (Arduino->IsConnected())
+			{
+				printf("\nArduino conectado.\n");
+				do
+				{
+					Arduino->ReadData(&notasn, sizeof(notasn));
+
+					Sleep(20);
+					if (notasn != 'a')
+						printf("%c", notasn);
+					else
+						printf("XXX ");
+					Sleep(100);
+
+				} while (_kbhit() == 0);
+			}
+			else
+				printf("\nNo se ha podido conectar con Arduino.\n");
+			break;
+		case 3:
+			elegir_cancion(Arduino, usuarios, notasn);
+			break;
+		case 4:
+			nusuarios = alta_usuario(usuarios, nusuarios);
+			crear_fichero(usuarios, nusuarios);
+			break;
+		case 5:
+			listado_de_usuarios(usuarios, nusuarios);
+			break;
+		case 6:
+			printf("\nPrograma finalizado\n");
+			break;
+		default: printf("\nOpción incorrecta. Elija una de las opciones.\n");
+			break;
+		}
+
+	} while (opc_menu != 6);
+
+	crear_fichero(usuarios, nusuarios);
+}
+
+/*void tocar_piano(Serial* Arduino)
+{
+	char tecla;
+	int bytes = 0,notasn;
+	char mens_recibido[MAX_BUFFER];
+
+	if (!Arduino->IsConnected()){
+		printf("\nNo se ha podido conectar con Arduino.\n");
+		exit(1);
+	}
+
+	start(Arduino);
+	
+	do
+	{
+		bytes = obtener_notas(Arduino, mens_recibido);
+		Sleep(PAUSA_MS);
+
+		if (bytes == 3)
+		{
+			notasn=conv_a_notas(mens_recibido);
+			printf("%c ", notasn);
 		}
 		else
-			printf("\nNo se ha podido conectar con Arduino.\n");
+			printf("Ha habido un error me thinks.");
+
+		Sleep(100);
 
 	} while (_kbhit() == 0);
 	tecla = _getch();
+
 	return;
+}*/
 
+int opciones(void)
+{
+	int opc_menu;
+	char intro;
+
+	printf("\n");
+	printf("Menú Principal\n");
+	printf("---------------\n");
+	printf("1 - Tocar piano libremente.\n");
+	printf("2 - Grabar melodia y reproducirla.\n");
+	printf("3 - Ver canciones.\n");
+	printf("4 - Dar de alta a un usuario.\n");
+	printf("5 - Listado de Usuarios.\n");
+	printf("6 - Salir de la aplicación\n");
+	printf("Opción: ");
+	scanf_s("%d", &opc_menu);
+	scanf_s("%c", &intro, 1);
+
+	return opc_menu;
 
 }
-
-int leer_notas(Serial* Arduino)
+/*char conv_a_notas(char mens_recibido[])
 {
-	int notas;
-	int bytesRecibidos;
-	char mensaje_recibido[MAX_BUFFER];
+	char nota = ' ';
 
-	bytesRecibidos = Enviar_y_Recibir(Arduino, "GET_NOTAS\n", mensaje_recibido);
+	if (mens_recibido == "0\r")
+		nota = 'DO';
+	else if (mens_recibido == "1\r")
+		nota = 'RE';
+	else if (mens_recibido == "2\r")
+		nota = 'MI';
+	else if (mens_recibido == "3\r")
+		nota = 'FA';
+	else if (mens_recibido == "4\r")
+		nota='SOL';
+	else if (mens_recibido == "5\r")
+		nota = 'LA';
+	else if (mens_recibido == "6\r")
+		nota = 'SI';
+	else if (mens_recibido == "7\r")
+		nota = 'DOa';
 
-	if (bytesRecibidos <= 0)
-		notas = -1;
-	else
-		notas = Nnotas(mensaje_recibido);
-	return notas;
+	return nota;
 }
 
-int Enviar_y_Recibir(Serial* Arduino, const char* mensaje_enviar, char* mensaje_recibir)
+int obtener_notas(Serial* Arduino, char* mens_recibido)
 {
-	int bytes_recibidos = 0, total = 0;
-	int intentos = 0, fin_linea = 0;
+	int total = 0, bytes;
 
-
-	Arduino->WriteData((char*)mensaje_enviar, strlen(mensaje_enviar));
+	while (!Arduino->WriteData((char*)"GET_NOTAS\n", MAX_BUFFER * sizeof(char))) {
+		;
+	}
 	Sleep(PAUSA_MS);
 
-	bytes_recibidos = Arduino->ReadData(mensaje_recibir, sizeof(char) * MAX_BUFFER - 1);
-
-	while ((bytes_recibidos > 0 || intentos < 5) && fin_linea == 0)
-	{
-		if (bytes_recibidos > 0)
-		{
-			total += bytes_recibidos;
-			if (mensaje_recibir[total - 1] == 13 || mensaje_recibir[total - 1] == 10)
-				fin_linea = 1;
-		}
-		else
-			intentos++;
-		Sleep(PAUSA_MS);
-		bytes_recibidos = Arduino->ReadData(mensaje_recibir + total, sizeof(char) * MAX_BUFFER - 1);
+	bytes = Arduino->ReadData(mens_recibido, sizeof(char) * MAX_BUFFER - 1);
+	while (bytes > 0) {
+		Sleep(TAM);
+		total += bytes;
+		bytes = Arduino->ReadData(mens_recibido + total, sizeof(char) * MAX_BUFFER - 1);
 	}
-	if (total > 0)
-		mensaje_recibir[total - 1] = '\0';
 
-	//printf("LOG: %d bytes -> %s\nIntentos=%d - EOLN=%d\n", total, mensaje_recibir,intentos,fin_linea);
+	if (total > 0) {
+		printf("\nbytes recibidos: %d\n", total);
+		mens_recibido[total - 2] = '\0';
+		printf("Mensaje recibido: %s\n", mens_recibido);
+	}
+
 	return total;
-}
+}*/
 
-
-
-int Nnotas(char* cadena)
+int alta_usuario(Usuario us[], int n)
 {
-	int numero = 0;
-	int i, divisor = 10, estado = 0;
-
-
-	for (i = 0; cadena[i] != '\0' && i < MAX_BUFFER; i++)
-		switch (estado)
-		{
-		case 0:// Antes del número
-			if (cadena[i] >= '0' && cadena[i] <= '9')
-			{
-				numero = cadena[i] - '0';
-				estado = 1;
-			}
-			break;
-		case 1:// Durante el número
-			if (cadena[i] >= '0' && cadena[i] <= '9')
-				numero = numero * 10 + cadena[i] - '0';
-		}
-	return numero;
-}
-
-void grabar_notas(Serial* Arduino)
-{
-	int notas, j = 0,i=0;
-	char notasn;
-	char tecla;
-
-
-	printf("Pulse una tecla para finalizar de tocar el piano\n");
-	do
+	if (n < MAX)
 	{
-		if (Arduino->IsConnected())
+		printf("Usuario = ");
+		scanf_s("%s", us[n].nombre, TAM);
+		us[n].canciones = 11;
+		n++;
+	}
+	else
+		printf("No puede haber mas usuarios.\n");
+
+	return n;
+}
+
+void elegir_cancion(Serial* Arduino, Usuario us[], int a)
+{
+	char notasn='n', cancion;
+	int n=3;
+
+	do 
+	{
+		printf("\nLista de canciones:\n");
+		printf("1- He is a Pirate\n");
+		printf("2- Himno de España\n");
+		printf("3- Level Theme: Mario Underworld\n");
+		printf("Elija opcion: ");
+
+		scanf_s("%c", &cancion);
+		if (cancion<1 && cancion>n)
+			printf("\nElige una de las opciones");
+
+	} while (cancion<1 && cancion>n);
+
+	if (Arduino->IsConnected())
+	{
+		printf("\nArduino conectado.\n");
+		do
 		{
-			Arduino->ReadData(&notasn, sizeof(notasn) - 1);
-			notasn = leer_notas(Arduino);
+			Arduino->WriteData((char*)cancion, MAX_BUFFER * sizeof(char));
+
+			Sleep(20);
 
 			if (notasn != ',')
-				printf("%s ", notasn);
+				printf("%c", notasn);
 			else
 				printf("XXX ");
-		}
-		else
-			printf("\nNo se ha podido conectar con Arduino.\n");
+			Sleep(100);
 
-	} while (_kbhit() == 0);
-	tecla = _getch();
-
-	for (j = 0; j < i; j++)
-	{
-		Arduino->WriteData((char*)notasn, strlen(&notasn));
-		Sleep(PAUSA_MS);
+		} while (_kbhit() == 0);
 	}
+	else
+		printf("\nNo se ha podido conectar con Arduino.\n");
 
-	return;
+
 }
 
-void ver_canciones(Serial* Arduino)
+void start(Serial* Arduino) 
 {
-	int i = 0;
-	char opcion;
+	;
+	while (!Arduino->WriteData((char*)"START\n", MAX_BUFFER * sizeof(char))) {
+		;
+	}
+}
 
-	printf("Lista de canciones:\n");
-	printf("1- He is a Pirate\n");
-	printf("2- Himno de España\n");
-	printf("3- Level Theme: Mario Underworld\n");
-	printf("Elija opcion: ");
 
-	while (opcion > 0 && opcion < 4)
+void crear_fichero(Usuario us[], int n)
+{
+	FILE* fichero;
+	int i;
+	errno_t e;
+	e = fopen_s(&fichero, "Lista_usuarios.txt", "wt");
+	if (fichero == NULL)
+		printf("No se ha podido guardar la agenda\n");
+	else
 	{
-		scanf_s("%d", &opcion);
-		if (opcion > 0 && opcion < 4)
-			printf("Elija una opcion entre 1 y 3: \n");
+		for (i = 0; i < n; i++)
+		{
+			fprintf(fichero, "%s ", us[i].nombre);
+			fprintf(fichero, "\n%d\n", us[i].canciones);
+		}
+		fclose(fichero);
 	}
 
-	Arduino->WriteData((char*)opcion, sizeof(opcion) - 1);
-	Sleep(PAUSA_MS);
+}
 
-	return;
+int buscar_usuarios(Usuario us[], int n, char const* nombre)
+{
+	int i = 1, contador = 0, d = 0;
+	int valor;
+
+/*
+	for (i = 0; i < n; i++)
+	{
+		while (*us[i].nombre != ' ')
+		{
+
+
+		}
+	}*/
+	
+	for (i = 0; i < n; i++)
+	{
+		valor = strcmp(us[i].nombre, nombre);
+
+		if (valor == 0)
+			d = i;
+		else
+			contador++;
+	}
+
+	if (contador == i)
+	{
+		printf("No hay un usuario llamado: %s \n", nombre);
+		d = 11;
+	}
+
+	return d;
+}
+
+int leer_fichero(Usuario us[])
+{
+	FILE* fichero;
+	int n = 0;
+	errno_t e;
+	char* p;
+
+	e = fopen_s(&fichero, "Lista_usuarios.txt", "rt");
+	if (fichero == NULL)
+		printf("La lista esta vacia\n");
+	else
+	{
+		fgets(us[n].nombre, TAM, fichero);
+		//fscanf_s(fichero, "%s", us[n].nombre, TAM);
+		while (!feof(fichero))
+		{
+			p = strchr(us[n].nombre, '\n');
+			*p = '\0';
+			
+			fscanf_s(fichero, "%d\n", &us[n].canciones);
+			n++;
+			
+			//fscanf_s(fichero, "%s", us[n].nombre, TAM);
+			
+			//fscanf_s(fichero, "%s", us[n].nombre, TAM);
+			fgets(us[n].nombre, TAM, fichero);
+		}
+		fclose(fichero);
+	}
+	return n;
+}
+
+
+void listado_de_usuarios(Usuario us[], int n)
+{
+	int i;
+
+	printf("\nUSUARIOS:\n");
+	printf("\n---------------\n");
+	for (i = 0; i < n; i++)
+	{
+		printf("Usuario = %s\n", us[i].nombre);
+		if(us[i].canciones==11)
+			printf("Numero de canciones guardadas = Ninguna\n");
+		else
+			printf("Numero de canciones guardadas = %d\n", us[i].canciones);
+		printf("---------------\n");
+	}
 }
