@@ -25,15 +25,15 @@ void menu(int, Serial*);
 int opciones(void);
 void start(Serial*);
 int obtener_notas(Serial*, char*);
-//void tocar_piano(Serial*);
-//char conv_a_notas(char[]);
+void tocar_piano(Serial*);
+char conv_a_notas(char[]);
 void elegir_cancion(Serial*, Usuario[], int);
 
-//funciones para guardar y leer ficheros de canciones
-//int grabar_cancion(Serial*, Usuario[], int);
+funciones para guardar y leer ficheros de canciones
+int grabar_cancion(Serial*, Usuario[], int);
 
 
-//funciones de usuarios
+funciones de usuarios
 int buscar_usuarios(Usuario[], int, char const*);
 int  alta_usuario(Usuario[], int);
 void crear_fichero(Usuario[], int);
@@ -74,14 +74,14 @@ void menu(int opc_menu, Serial* Arduino)
 		{
 
 		case 1:
-			/*do {
+			do {
 				printf("¿Que usuario eres?\n");
 				scanf_s("%s", nombre_us, TAM);
 
 				n_usuario = buscar_usuarios(usuarios, nusuarios, nombre_us);
 			} while (n_usuario == 11);*/
 
-			//tocar_piano(Arduino);
+			tocar_piano(Arduino);
 			if (Arduino->IsConnected())
 			{
 				printf("\nArduino conectado.\n");
@@ -110,7 +110,7 @@ void menu(int opc_menu, Serial* Arduino)
 				n_usuario = buscar_usuarios(usuarios, nusuarios, nombre_us);
 			} while (n_usuario == 11);
 
-			//grabar(Arduino, usuarios, n_usuario, nusuarios);
+			grabar(Arduino, usuarios, n_usuario, nusuarios);
 			if (Arduino->IsConnected())
 			{
 				printf("\nArduino conectado.\n");
@@ -152,7 +152,7 @@ void menu(int opc_menu, Serial* Arduino)
 	crear_fichero(usuarios, nusuarios);
 }
 
-/*void tocar_piano(Serial* Arduino)
+void tocar_piano(Serial* Arduino)
 {
 	char tecla;
 	int bytes = 0,notasn;
@@ -184,7 +184,7 @@ void menu(int opc_menu, Serial* Arduino)
 	tecla = _getch();
 
 	return;
-}*/
+}
 
 int opciones(void)
 {
@@ -207,7 +207,7 @@ int opciones(void)
 	return opc_menu;
 
 }
-/*char conv_a_notas(char mens_recibido[])
+char conv_a_notas(char mens_recibido[])
 {
 	char nota = ' ';
 
@@ -254,7 +254,7 @@ int obtener_notas(Serial* Arduino, char* mens_recibido)
 	}
 
 	return total;
-}*/
+}
 
 int alta_usuario(Usuario us[], int n)
 {
@@ -347,7 +347,7 @@ int buscar_usuarios(Usuario us[], int n, char const* nombre)
 	int i = 1, contador = 0, d = 0;
 	int valor;
 
-/*
+
 	for (i = 0; i < n; i++)
 	{
 		while (*us[i].nombre != ' ')
@@ -355,7 +355,7 @@ int buscar_usuarios(Usuario us[], int n, char const* nombre)
 
 
 		}
-	}*/
+	}
 	
 	for (i = 0; i < n; i++)
 	{
@@ -365,7 +365,7 @@ int buscar_usuarios(Usuario us[], int n, char const* nombre)
 			d = i;
 		else
 			contador++;
-	}
+1	}
 
 	if (contador == i)
 	{
@@ -398,9 +398,9 @@ int leer_fichero(Usuario us[])
 			fscanf_s(fichero, "%d\n", &us[n].canciones);
 			n++;
 			
-			//fscanf_s(fichero, "%s", us[n].nombre, TAM);
+			fscanf_s(fichero, "%s", us[n].nombre, TAM);
 			
-			//fscanf_s(fichero, "%s", us[n].nombre, TAM);
+			fscanf_s(fichero, "%s", us[n].nombre, TAM);
 			fgets(us[n].nombre, TAM, fichero);
 		}
 		fclose(fichero);
