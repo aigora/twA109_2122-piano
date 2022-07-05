@@ -32,8 +32,8 @@ Primero solicitara que selecciones un usuario e introduzcas una contraseña.Por 
 Una vez introducido el usuario se mostrará este menú:
 
 1. Tocar piano.
-2. Grabar melodia y reproducirla.
-3. Ver canciones.
+2. Ver canciones.
+3. Ver grbaciones en arduino
 4. Salir de la aplicación.
 
 Si el arduino no está conectado al ordenador se solicitará que se conecte el arduino para poder funcionar.
