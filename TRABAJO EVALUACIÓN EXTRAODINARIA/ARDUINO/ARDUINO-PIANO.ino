@@ -23,9 +23,9 @@ int frequency[] = {262, 294, 330, 349, 392, 440, 494, 523};
 int val=0;
 unsigned long on_time=0;
 unsigned long off_time=0;
-unsigned long button_ontime[200];
-unsigned long button_offtime[200];
-int button_seq[200];
+unsigned long button_ontime[100];
+unsigned long button_offtime[100];
+int button_seq[100];
 
 int buttonPin = 2;
 int previousState = HIGH;
